@@ -113,7 +113,7 @@ def video_audio_merge_batch(result):
     index = result.result()[1]
     import subprocess
     video_final = video_name.replace('video', 'video_final')
-    command = 'ffmpeg -i %s_video.mp4 -i %s_audio.mp4 -c copy %s.mp4 -y -loglevel quiet' % (
+    command = 'ffmpeg -i "%s_video.mp4" -i "%s_audio.mp4" -c copy "%s.mp4" -y -loglevel quiet' % (
         video_name, video_name, video_final)
     subprocess.Popen(command, shell=True)
     print("%d.\t视频下载结束：%s" % (index, video_name.split('/')[2]))
@@ -123,7 +123,7 @@ def video_audio_merge_single(video_name):
     '''使用ffmpeg单个视频音频合并'''
     print("视频合成开始：%s" % video_name)
     import subprocess
-    command = 'ffmpeg -i %s_video.mp4 -i %s_audio.mp4 -c copy %s.mp4 -y -loglevel quiet' % (
+    command = 'ffmpeg -i "%s_video.mp4" -i "%s_audio.mp4" -c copy "%s.mp4" -y -loglevel quiet' % (
         video_name, video_name, video_name)
     subprocess.Popen(command, shell=True)
     print("视频合成结束：%s" % video_name)
